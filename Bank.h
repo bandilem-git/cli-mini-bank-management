@@ -109,7 +109,7 @@ class Bank{
     
         void printUsers(){
             for(int i = 0; i < users.size(); i++){
-                std::cout <<i <<" : "<<users[i].getUserName();
+                std::cout <<i+1 <<" : "<<users[i].getUserName();
                 if(i != users.size()-1){
                     std::cout << " -> ";
 
@@ -130,6 +130,7 @@ class Bank{
             for(User x : users){
                 if(x.getUserName() == username && x.getUserPassword() == pass){
                     x.deposit(amount);
+                    return;
                 }
             }
             std::cout <<"username or password may be wrong"<<std::endl;
@@ -139,8 +140,13 @@ class Bank{
             for(User x : users){
                 if(x.getUserName() == username && x.getUserPassword() == pass){
                     x.withdraw(amount);
+                    return;
                 }
+
             }
+            
+            std::cout <<"username or password may be wrong"<<std::endl;
+
         }
     };
 
